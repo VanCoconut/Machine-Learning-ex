@@ -66,9 +66,15 @@ DP = np.dot(P.T, a)
 print("U2: \n"+str(U2))
 print("P: \n"+str(P))
 
-plt.hist(DP[0], bins=10, density=True, ec="white", color="red", alpha=0.6)
-plt.show()
-print("DP: \n"+str(DP))
-tr = np.load("IRIS_PCA_matrix_m4.npy")
-print("matrice del prof: \n"+str(tr))
+# plt.hist(DP[0], bins=10, density=True, ec="white", color="red", alpha=0.6)
+# plt.show()
+# plt.hist(DP[1], bins=10, density=True, ec="white", color="red", alpha=0.6)
+# plt.show()
+# plt.hist(DP[2], bins=10, density=True, ec="white", color="red", alpha=0.6)
+# plt.show()
+# print("DP: \n"+str(DP))
+# tr = np.load("IRIS_PCA_matrix_m4.npy")
+# print("matrice del prof: \n"+str(tr))
+
+
 
