@@ -54,7 +54,7 @@ withinCovariance = covarianceMatrixSetosa + covarianceMatrixVesicolor + covarian
 # numnber of classes
 nClasses = 3
 withinCovariance = withinCovariance / nClasses
-# print(withinCovariance)
+print("Within covariance matrix"+ withinCovariance)
 
 ########
 # BETWEEN CLASS COVARIANCE
@@ -142,15 +142,15 @@ plt.grid(True)
 
 ###########################################################################
 #################     PCA + LDA   ##############
-
+#
 # non ho capito cosa fa
-# def load_iris():
-#     return sklearn.datasets.load_iris()["data"].T, sklearn.datasets.load_iris()["target"]
-#
-#
-# DIris, LIris = load_iris()
-# D = DIris[:, LIris != 0]
-# L = LIris[LIris != 0]
+def load_iris():
+    return sklearn.datasets.load_iris()["data"].T, sklearn.datasets.load_iris()["target"]
+
+
+DIris, LIris = load_iris()
+D = DIris[:, LIris != 0]
+L = LIris[LIris != 0]
 
 
 def split_db_2to1(d, l, seed=0):
@@ -225,5 +225,5 @@ threshold = (DTR_lda[0, LTR == 1].mean() + DTR_lda[0, LTR == 2].mean()) / 2.0
 # Projected samples have only 1 dimension
 
 PVAL = np.zeros(shape=LVAL.shape, dtype=np.int32)
-PVAL[DVAL_lda[0] >= threshold] = 2
-PVAL[DVAL_lda[0] < threshold] = 1
+#PVAL[DVAL_lda[0] >= threshold] = 2
+#PVAL[DVAL_lda[0] < threshold] = 1

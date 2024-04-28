@@ -55,16 +55,16 @@ virginicaMean = virginica.mean(1)
 # print("Mean of the versicolor class: " + str(versicolorMean))
 # print("Mean of the veriginica class: " + str(virginicaMean))
 
-print("Covariance Matrix" +str(covarianceMatrix))
-print("Mean of the matrix"+ str(mu))
+#print("Covariance Matrix" +str(covarianceMatrix))
+#print("Mean of the matrix"+ str(mu))
 
 s, U = np.linalg.eigh(covarianceMatrix)
 P = U[:, ::-1][:, 0:3]
 U2, s2, Vh = np.linalg.svd(covarianceMatrix)
 P2 = U2[:, 0:3]
 DP = np.dot(P.T, a)
-print("U2: \n"+str(U2))
-print("P: \n"+str(P))
+#print("U2: \n"+str(U2))
+#print("P: \n"+str(P))
 
 # plt.hist(DP[0], bins=10, density=True, ec="white", color="red", alpha=0.6)
 # plt.show()
@@ -75,6 +75,26 @@ print("P: \n"+str(P))
 # print("DP: \n"+str(DP))
 # tr = np.load("IRIS_PCA_matrix_m4.npy")
 # print("matrice del prof: \n"+str(tr))
+
+def pca(m, dataset):
+    [data, bi] = load(dataset)
+    mean = data.mean(1).reshape(data.shape[0], 1)
+    cData = a - mean
+    covarMatrix = (cData @ cData.T) / float(data.shape[1])
+    s1, U1 = np.linalg.eigh(covarMatrix)
+    P1 = U[:, ::-1][:, 0:m]
+    #you can find P with SVD too
+    #U2, s2, Vh = np.linalg.svd(covarianceMatrix)
+    #P2 = U2[:, 0:3]
+    y = np.dot(P1.T, data)
+    plt.scatter(y[0], y[1])
+    plt.show()
+
+
+pca(3, "iris.csv")
+
+
+
 
 
 
